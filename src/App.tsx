@@ -197,7 +197,7 @@ function App() {
           <span>Ver Código</span>
         </a>
         <a
-          href="https://faztudo.vercel.app/"
+          href="https://faz-tudo-sigma.vercel.app/"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center space-x-2 text-gray-600 hover:text-gray-700 font-semibold"
@@ -208,36 +208,6 @@ function App() {
     </div>
   </div>
 </div>
-          <div className="grid lg:grid-cols-2 gap-8">
-            <div className="group bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden hover:-translate-y-2">
-              <div className="h-64 bg-gradient-to-br from-purple-500 to-indigo-600 relative overflow-hidden">
-                <div className="absolute inset-0 bg-black/20"></div>
-                <div className="absolute bottom-4 left-6 right-6">
-                  <div className="bg-white/90 backdrop-blur-sm rounded-lg p-4">
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">FazTudo PWA</h3>
-                    <div className="flex space-x-2">
-                      <span className="px-3 py-1 bg-purple-100 text-purple-700 text-sm rounded-full">PWA</span>
-                      <span className="px-3 py-1 bg-indigo-100 text-indigo-700 text-sm rounded-full">React</span>
-                      <span className="px-3 py-1 bg-orange-100 text-orange-700 text-sm rounded-full">Firebase</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="p-8">
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  Aplicação web progressiva com frontend responsivo, integração completa com Firebase e interface moderna focada em automação de tarefas do dia a dia.
-                </p>
-                <div className="flex space-x-4">
-                  <button className="flex items-center space-x-2 text-purple-600 hover:text-purple-700 font-semibold">
-                    <Code className="w-4 h-4" />
-                    <span>Ver Código</span>
-                  </button>
-                  <button className="flex items-center space-x-2 text-gray-600 hover:text-gray-700 font-semibold">
-                    <span>Demo Live</span>
-                  </button>
-                </div>
-              </div>
-            </div>
 
             <div className="group bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden hover:-translate-y-2">
               <div className="h-64 bg-gradient-to-br from-indigo-500 to-blue-600 relative overflow-hidden">
@@ -255,7 +225,7 @@ function App() {
               </div>
               <div className="p-8">
                 <p className="text-gray-600 mb-6 leading-relaxed">
-                  Exemplo de landing page profissional com foco em conversão, design moderno, otimização para SEO e código limpo e bem estruturado.
+                Exemplo de landing page profissional com foco em conversão, design moderno, otimização para SEO e código limpo e bem estruturado.
                 </p>
                 <div className="flex space-x-4">
                   <button className="flex items-center space-x-2 text-purple-600 hover:text-purple-700 font-semibold">
