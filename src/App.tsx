@@ -87,9 +87,9 @@ function App() {
         </div>
         
         {/* Floating Elements */}
-        <div className="absolute top-1/4 left-1/4 w-16 h-16 bg-purple-200 rounded-full animate-pulse opacity-30"></div>
-        <div className="absolute bottom-1/3 right-1/4 w-12 h-12 bg-indigo-200 rounded-full animate-bounce opacity-40"></div>
-        <div className="absolute top-1/2 right-1/6 w-8 h-8 bg-blue-200 rounded-full animate-ping opacity-25"></div>
+        <div className="absolute top-1/4 left-1/4 w-16 h-16 bg-purple-300 rounded-full animate-pulse opacity-30"></div>
+        <div className="absolute bottom-1/3 right-1/4 w-12 h-12 bg-indigo-300 rounded-full animate-bounce opacity-40"></div>
+        <div className="absolute top-1/2 right-1/6 w-8 h-8 bg-blue-300 rounded-full animate-ping opacity-25"></div>
       </section>
 
       {/* Skills Section */}
@@ -172,7 +172,7 @@ function App() {
         <div className="bg-white/90 backdrop-blur-sm rounded-lg p-4">
           <h3 className="text-xl font-bold text-gray-900 mb-2">FazTudo</h3>
           <div className="flex space-x-1">
-            <span className="px-2 py-1 bg-purple-100 text-purple-700 text-sm rounded-full">PWA</span>
+            <span className="px-3 py-1 bg-purple-100 text-purple-700 text-sm rounded-full">PWA</span>
             <span className="px-2 py-1 bg-indigo-100 text-indigo-700 text-sm rounded-full">React</span>
             <span className="px-2 py-1 bg-orange-100 text-orange-700 text-sm rounded-full">Firebase</span>
             <span className="px-2 py-1 bg-green-100 text-green-700 text-sm rounded-full">Automação</span>
