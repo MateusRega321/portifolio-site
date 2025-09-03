@@ -88,8 +88,8 @@ function App() {
         
         {/* Floating Elements */}
         <div className="absolute top-1/4 left-1/4 w-16 h-16 bg-purple-300 rounded-full animate-pulse opacity-30"></div>
-        <div className="absolute bottom-1/3 right-1/4 w-12 h-12 bg-gren-300 rounded-full animate-bounce opacity-40"></div>
-        <div className="absolute top-1/2 right-1/6 w-8 h-8 bg-blue-300 rounded-full animate-ping opacity-25"></div>
+        <div className="absolute bottom-1/3 right-1/4 w-12 h-12 bg-pink-300 rounded-full animate-bounce opacity-40"></div>
+        <div className="absolute top-1/2 right-1/6 w-10 h-10 bg-blue-300 rounded-full animate-ping opacity-25"></div>
       </section>
 
       {/* Skills Section */}
