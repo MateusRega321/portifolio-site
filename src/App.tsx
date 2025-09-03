@@ -171,11 +171,11 @@ function App() {
       <div className="absolute bottom-4 left-6 right-6">
         <div className="bg-white/90 backdrop-blur-sm rounded-lg p-4">
           <h3 className="text-xl font-bold text-gray-900 mb-2">FazTudo</h3>
-          <div className="flex space-x-2">
-            <span className="px-3 py-1 bg-purple-100 text-purple-700 text-sm rounded-full">PWA</span>
-            <span className="px-3 py-1 bg-indigo-100 text-indigo-700 text-sm rounded-full">React</span>
-            <span className="px-3 py-1 bg-orange-100 text-orange-700 text-sm rounded-full">Firebase</span>
-            <span className="px-3 py-1 bg-green-100 text-green-700 text-sm rounded-full">Automação</span>
+          <div className="flex space-x-1">
+            <span className="px-2 py-1 bg-purple-100 text-purple-700 text-sm rounded-full">PWA</span>
+            <span className="px-2 py-1 bg-indigo-100 text-indigo-700 text-sm rounded-full">React</span>
+            <span className="px-2 py-1 bg-orange-100 text-orange-700 text-sm rounded-full">Firebase</span>
+            <span className="px-2 py-1 bg-green-100 text-green-700 text-sm rounded-full">Automação</span>
           </div>
         </div>
       </div>
