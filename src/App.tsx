@@ -164,7 +164,50 @@ function App() {
               Alguns dos meus trabalhos recentes que demonstram minhas habilidades técnicas
             </p>
           </div>
-          
+          <div className="grid lg:grid-cols-2 gap-8">
+  <div className="group bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden hover:-translate-y-2">
+    <div className="h-64 bg-gradient-to-br from-purple-500 to-indigo-600 relative overflow-hidden">
+      <div className="absolute inset-0 bg-black/20"></div>
+      <div className="absolute bottom-4 left-6 right-6">
+        <div className="bg-white/90 backdrop-blur-sm rounded-lg p-4">
+          <h3 className="text-xl font-bold text-gray-900 mb-2">FazTudo</h3>
+          <div className="flex space-x-2">
+            <span className="px-3 py-1 bg-purple-100 text-purple-700 text-sm rounded-full">PWA</span>
+            <span className="px-3 py-1 bg-indigo-100 text-indigo-700 text-sm rounded-full">React</span>
+            <span className="px-3 py-1 bg-orange-100 text-orange-700 text-sm rounded-full">Firebase</span>
+            <span className="px-3 py-1 bg-green-100 text-green-700 text-sm rounded-full">Automação</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div className="p-8">
+      <p className="text-gray-600 mb-6 leading-relaxed">
+        O FazTudo é um aplicativo de automações pessoais em português, inspirado no Zapier. 
+        Ele permite criar fluxos com voz, funciona no modo offline-first e integra inteligência 
+        artificial para simplificar o dia a dia de estudantes e empreendedores.
+      </p>
+      <div className="flex space-x-4">
+        <a
+          href="https://github.com/seu-repo/faztudo"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center space-x-2 text-purple-600 hover:text-purple-700 font-semibold"
+        >
+          <Code className="w-4 h-4" />
+          <span>Ver Código</span>
+        </a>
+        <a
+          href="https://faztudo.vercel.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center space-x-2 text-gray-600 hover:text-gray-700 font-semibold"
+        >
+          <span>Demo Live</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
           <div className="grid lg:grid-cols-2 gap-8">
             <div className="group bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden hover:-translate-y-2">
               <div className="h-64 bg-gradient-to-br from-purple-500 to-indigo-600 relative overflow-hidden">
