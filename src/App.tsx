@@ -188,7 +188,7 @@ function App() {
       </p>
       <div className="flex space-x-4">
         <a
-          href="https://github.com/seu-repo/faztudo"
+          href="https://github.com/mateusrega/FazTudo"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center space-x-2 text-purple-600 hover:text-purple-700 font-semibold"
