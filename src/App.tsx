@@ -25,7 +25,7 @@ function App() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
       {/* Fixed Navigation */}
-      <nav className={`fixed top-0 left-15 right-0 z-15 transition-all duration-300 ${
+      <nav className={`fixed top-0 left-0 right-0 z-20 transition-all duration-300 ${
         isScrolled 
           ? 'bg-white/90 backdrop-blur-lg shadow-lg border-b border-white/20' 
           : 'bg-transparent'
