@@ -294,7 +294,7 @@ function App() {
                       <span className="px-3 py-1 bg-purple-200 text-purple-700 text-xs lg:text-sm rounded-full font-medium">PWA</span>
                       <span className="px-3 py-1 bg-indigo-100 text-indigo-700 text-xs lg:text-sm rounded-full font-medium">React</span>
                       <span className="px-3 py-1 bg-orange-100 text-orange-700 text-xs lg:text-sm rounded-full font-medium">Firebase</span>
-                      <span className="px-3 py-1 bg-green-100 text-green-700 text-xs lg:text-sm rounded-full font-medium">IA</span>
+                      <span className="px-3 py-1 bg-green-100 text-green-700 text-xs lg:text-sm rounded-full font-medium">Automação</span>
                     </div>
                   </div>
                 </div>
@@ -302,9 +302,11 @@ function App() {
               
               <div className="p-6 lg:p-8">
                 <p className="text-gray-600 mb-6 lg:mb-8 leading-relaxed text-sm lg:text-base">
-                  Aplicativo de automações pessoais em português, inspirado no Zapier. 
-                  Permite criar fluxos com voz, funciona offline-first e integra IA para 
-                  simplificar o dia a dia de estudantes e empreendedores.
+                  App FazTudo é uma plataforma de automação com diversas tecnologia avançadas
+                  e ao mesmo tempo simples e intuitiva, focada na realidade brasileira todos 
+                  os recursos básico são gratuito, e, foi construída para atender necessidades 
+                  de criadores de conteúdo, freelancers e pequenas empresas. Infelizmente ele 
+                  ainda não está disponível, pois, está em desenvolvimento.
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4">
@@ -341,12 +343,12 @@ function App() {
                 
                 <div className="absolute bottom-4 left-4 right-4 lg:bottom-6 lg:left-6 lg:right-6">
                   <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-4 lg:p-6 transform group-hover:scale-105 transition-transform duration-500">
-                    <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-3">Landing Page Pro</h3>
+                    <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-3">trabalho</h3>
                     <div className="flex flex-wrap gap-2">
-                      <span className="px-3 py-1 bg-blue-100 text-blue-700 text-xs lg:text-sm rounded-full font-medium">Landing</span>
-                      <span className="px-3 py-1 bg-green-100 text-green-700 text-xs lg:text-sm rounded-full font-medium">Conversão</span>
-                      <span className="px-3 py-1 bg-yellow-100 text-yellow-700 text-xs lg:text-sm rounded-full font-medium">Design</span>
-                      <span className="px-3 py-1 bg-purple-100 text-purple-700 text-xs lg:text-sm rounded-full font-medium">SEO</span>
+                      <span className="px-3 py-1 bg-blue-100 text-blue-700 text-xs lg:text-sm rounded-full font-medium">1</span>
+                      <span className="px-3 py-1 bg-green-100 text-green-700 text-xs lg:text-sm rounded-full font-medium">2</span>
+                      <span className="px-3 py-1 bg-yellow-100 text-yellow-700 text-xs lg:text-sm rounded-full font-medium">3</span>
+                      <span className="px-3 py-1 bg-purple-100 text-purple-700 text-xs lg:text-sm rounded-full font-medium">4</span>
                     </div>
                   </div>
                 </div>
@@ -354,9 +356,7 @@ function App() {
               
               <div className="p-6 lg:p-8">
                 <p className="text-gray-600 mb-6 lg:mb-8 leading-relaxed text-sm lg:text-base">
-                  Landing page profissional com foco em conversão, design moderno, otimização 
-                  para SEO e código limpo. Desenvolvida com as melhores práticas de performance 
-                  e acessibilidade.
+                 descrição 
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4">
@@ -447,11 +447,7 @@ function App() {
                     <span className="text-purple-100 text-sm lg:text-base">Resposta em até 24h</span>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
-                    <span className="text-purple-100 text-sm lg:text-base">Projetos de longo prazo</span>
-                  </div>
                 </div>
-
                 <button 
                   onClick={() => window.open('mailto:mateus.rega@escola.pr.gov.br', '_blank')}
                   className="mt-8 bg-white text-purple-600 px-6 lg:px-8 py-3 lg:py-4 rounded-xl lg:rounded-2xl font-semibold hover:bg-purple-50 hover:scale-105 transition-all duration-300 flex items-center space-x-2 w-full sm:w-auto justify-center"
