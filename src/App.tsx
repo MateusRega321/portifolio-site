@@ -399,7 +399,7 @@ function App() {
                     href="mailto:mateus.rega@escola.pr.gov.br" 
                     className="text-purple-600 hover:text-purple-700 transition-colors duration-200 text-sm lg:text-base break-all"
                   >
-                    mateus.rega@escola.pr.gov.br
+                    mateus.rega@escola.pr.gov.br 
                   </a>
                 </div>
               </div>
