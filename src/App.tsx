@@ -487,8 +487,6 @@ function App() {
                     <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
                     <span className="text-purple-100 text-sm lg:text-base">Resposta em até 24h</span>
                   </div>
-                  <div className="flex items-center space-x-3">
-                </div>
                 <button 
                   onClick={() => window.open('mailto:mateus.rega@escola.pr.gov.br', '_blank')}
                   className="mt-8 bg-white text-purple-600 px-6 lg:px-8 py-3 lg:py-4 rounded-xl lg:rounded-2xl font-semibold hover:bg-purple-50 hover:scale-105 transition-all duration-300 flex items-center space-x-2 w-full sm:w-auto justify-center"
@@ -500,7 +498,6 @@ function App() {
             </div>
           </div>
         </div>
-          </div>
 
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12 lg:py-16">
