@@ -5,11 +5,13 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 80px;
   }
   
   body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
     line-height: 1.6;
+    overflow-x: hidden;
   }
 }
 
@@ -20,6 +22,10 @@
   
   .animate-glow {
     animation: glow 2s ease-in-out infinite alternate;
+  }
+  
+  .smooth-scroll {
+    scroll-behavior: smooth;
   }
 }
 
@@ -63,7 +69,26 @@
 * {
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
+  transition-duration: 200ms;
+}
+
+/* Optimize animations for better performance */
+.animate-pulse,
+.animate-bounce,
+.animate-ping {
+  will-change: transform, opacity;
+}
+
+/* Prevent layout shifts during navigation */
+nav {
+  will-change: background-color, backdrop-filter, box-shadow;
+}
+
+/* Smooth navigation button transitions */
+nav button {
+  will-change: transform, background-color, color;
+  backface-visibility: hidden;
+  transform: translateZ(0);
 }
 
 /* Focus styles for accessibility */
@@ -75,10 +100,22 @@ a:focus-visible {
 
 /* Mobile-specific optimizations */
 @media (max-width: 768px) {
-  .animate-bounce,
-  .animate-pulse,
-  .animate-ping {
+  /* Reduce animation intensity on mobile for better performance */
+  .animate-bounce {
+    animation-duration: 2s;
+  }
+  
+  .animate-pulse {
     animation-duration: 3s;
+  }
+  
+  .animate-ping {
+    animation-duration: 2.5s;
+  }
+  
+  /* Optimize touch interactions */
+  button, a {
+    touch-action: manipulation;
   }
 }
 
@@ -90,6 +127,10 @@ a:focus-visible {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  html {
     scroll-behavior: auto !important;
   }
 }

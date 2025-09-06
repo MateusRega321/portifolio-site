@@ -6,29 +6,56 @@ function App() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isScrolling, setIsScrolling] = useState(false);
 
   useEffect(() => {
+    let scrollTimeout: NodeJS.Timeout;
+    let ticking = false;
+
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-      
-      // Update active section based on scroll position
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const scrollY = window.scrollY;
+          setIsScrolled(scrollY > 50);
+          
+          // Debounce active section updates to prevent rapid changes
+          clearTimeout(scrollTimeout);
+          scrollTimeout = setTimeout(() => {
+            if (!isScrolling) {
+              updateActiveSection();
+            }
+          }, 100);
+          
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    const updateActiveSection = () => {
       const sections = ['home', 'skills', 'projects', 'contact'];
-      const scrollPosition = window.scrollY + 100;
+      const scrollPosition = window.scrollY + window.innerHeight / 3;
       
-      for (const section of sections) {
-        const element = document.getElementById(section);
+      let currentSection = 'home';
+      
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const element = document.getElementById(sections[i]);
         if (element) {
-          const { offsetTop, offsetHeight } = element;
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(section);
+          const { offsetTop } = element;
+          if (scrollPosition >= offsetTop) {
+            currentSection = sections[i];
             break;
           }
         }
       }
+      
+      setActiveSection(currentSection);
     };
 
     const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
+      requestAnimationFrame(() => {
+        setMousePosition({ x: e.clientX, y: e.clientY });
+      });
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -37,15 +64,30 @@ function App() {
     return () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('mousemove', handleMouseMove);
+      clearTimeout(scrollTimeout);
     };
-  }, []);
+  }, [isScrolling]);
 
   const scrollToSection = (sectionId: string) => {
+    setIsScrolling(true);
+    setActiveSection(sectionId);
+    setIsMobileMenuOpen(false);
+    
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setActiveSection(sectionId);
-      setIsMobileMenuOpen(false);
+      const headerOffset = 80;
+      const elementPosition = element.offsetTop;
+      const offsetPosition = elementPosition - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+      
+      // Reset scrolling state after animation completes
+      setTimeout(() => {
+        setIsScrolling(false);
+      }, 1000);
     }
   };
 
@@ -60,7 +102,7 @@ function App() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50 relative overflow-x-hidden">
       {/* Cursor follower */}
       <div 
-        className="fixed w-6 h-6 bg-purple-500/20 rounded-full pointer-events-none z-50 transition-all duration-300 ease-out hidden lg:block"
+        className="fixed w-6 h-6 bg-purple-500/20 rounded-full pointer-events-none z-50 transition-all duration-150 ease-out hidden lg:block"
         style={{
           left: mousePosition.x - 12,
           top: mousePosition.y - 12,
@@ -68,7 +110,7 @@ function App() {
       />
 
       {/* Fixed Navigation */}
-      <nav className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
+      <nav className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
         isScrolled 
           ? 'bg-white/95 backdrop-blur-xl shadow-xl border-b border-purple-100/50' 
           : 'bg-transparent'
@@ -85,15 +127,15 @@ function App() {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className={`px-6 py-3 rounded-full transition-all duration-300 font-medium relative overflow-hidden group ${
+                  className={`px-6 py-3 rounded-full transition-all duration-200 font-medium relative overflow-hidden group ${
                     activeSection === item.id
-                      ? 'bg-gradient-to-r from-purple-600 to-indigo-600 text-white shadow-lg'
+                      ? 'bg-gradient-to-r from-purple-600 to-indigo-600 text-white shadow-lg scale-105'
                       : 'text-gray-700 hover:text-purple-600 hover:bg-purple-50'
                   }`}
                 >
                   <span className="relative z-10">{item.label}</span>
                   {activeSection !== item.id && (
-                    <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-indigo-600 opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-indigo-600 opacity-0 group-hover:opacity-10 transition-opacity duration-200" />
                   )}
                 </button>
               ))}
@@ -110,7 +152,7 @@ function App() {
         </div>
 
         {/* Mobile Navigation */}
-        <div className={`lg:hidden transition-all duration-300 ${
+        <div className={`lg:hidden transition-all duration-200 ${
           isMobileMenuOpen 
             ? 'max-h-64 opacity-100' 
             : 'max-h-0 opacity-0 overflow-hidden'
@@ -120,12 +162,11 @@ function App() {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`w-full text-left px-4 py-3 rounded-xl transition-all duration-300 font-medium mb-2 ${
+                className={`w-full text-left px-4 py-3 rounded-xl transition-all duration-200 font-medium mb-2 ${
                   activeSection === item.id
                     ? 'bg-gradient-to-r from-purple-600 to-indigo-600 text-white'
                     : 'text-gray-700 hover:bg-purple-50'
                 }`}
-                style={{ animationDelay: `${index * 50}ms` }}
               >
                 {item.label}
               </button>
@@ -138,10 +179,10 @@ function App() {
       <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
         {/* Animated Background Elements */}
         <div className="absolute inset-0">
-          <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-gradient-to-br from-purple-400/20 to-pink-400/20 rounded-full animate-pulse"></div>
-          <div className="absolute bottom-1/3 right-1/4 w-24 h-24 bg-gradient-to-br from-indigo-400/20 to-blue-400/20 rounded-full animate-bounce"></div>
-          <div className="absolute top-1/2 right-1/6 w-16 h-16 bg-gradient-to-br from-cyan-400/20 to-teal-400/20 rounded-full animate-ping"></div>
-          <div className="absolute bottom-1/4 left-1/6 w-20 h-20 bg-gradient-to-br from-rose-400/20 to-orange-400/20 rounded-full animate-pulse"></div>
+          <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-gradient-to-br from-purple-400/10 to-pink-400/10 rounded-full animate-pulse"></div>
+          <div className="absolute bottom-1/3 right-1/4 w-24 h-24 bg-gradient-to-br from-indigo-400/10 to-blue-400/10 rounded-full animate-bounce"></div>
+          <div className="absolute top-1/2 right-1/6 w-16 h-16 bg-gradient-to-br from-cyan-400/10 to-teal-400/10 rounded-full animate-ping"></div>
+          <div className="absolute bottom-1/4 left-1/6 w-20 h-20 bg-gradient-to-br from-rose-400/10 to-orange-400/10 rounded-full animate-pulse"></div>
         </div>
 
         <div className="text-center z-10 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
@@ -170,15 +211,15 @@ function App() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <button 
               onClick={() => scrollToSection('projects')}
-              className="group bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center space-x-2 w-full sm:w-auto justify-center"
+              className="group bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:shadow-2xl hover:scale-105 transition-all duration-200 flex items-center space-x-2 w-full sm:w-auto justify-center"
             >
               <span>Ver Projetos</span>
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
             </button>
             
             <button 
               onClick={() => scrollToSection('contact')}
-              className="group border-2 border-purple-600 text-purple-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-purple-600 hover:text-white transition-all duration-300 flex items-center space-x-2 w-full sm:w-auto justify-center"
+              className="group border-2 border-purple-600 text-purple-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-purple-600 hover:text-white transition-all duration-200 flex items-center space-x-2 w-full sm:w-auto justify-center"
             >
               <Mail className="w-5 h-5" />
               <span>Entrar em Contato</span>
